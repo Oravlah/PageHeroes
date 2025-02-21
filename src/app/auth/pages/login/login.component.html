@@ -3,16 +3,16 @@
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form">
     <div class="input-field">
       <input
-        formControlName="username"
+        formControlName="email"
         required
         autocomplete="off"
-        type="username"
-        id="username"
+        type="email"
+        id="email"
       />
-      <label for="username">username</label>
-      <div *ngIf="loginForm.controls['username'].invalid && loginForm.controls['username'].touched">
-        <small *ngIf="loginForm.controls['username'].hasError('required')">El correo es obligatorio.</small>
-        <small *ngIf="loginForm.controls['username'].hasError('username')">Ingresa un correo válido.</small>
+      <label for="email">email</label>
+      <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
+        <small *ngIf="loginForm.controls['email'].hasError('required')">El correo es obligatorio.</small>
+        <small *ngIf="loginForm.controls['email'].hasError('email')">Ingresa un correo válido.</small>
       </div>
     </div>
 

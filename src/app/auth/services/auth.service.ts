@@ -20,8 +20,8 @@ export class AuthService {
   }
 
   // Iniciar sesión y guardar tokens
-  login(username: string, password: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}`, { username, password }).pipe(
+  login(email: string, password: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}`, { email, password }).pipe(
       tap((response: any) => {
         if (response.access && response.refresh) {
           this.saveToken(response.access, response.refresh);

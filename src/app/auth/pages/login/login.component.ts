@@ -24,7 +24,7 @@ export default class LoginComponent implements OnInit {
 
     ngOnInit(): void {
     this.loginForm = this.fb.group({
-      username: ['', [Validators.required]], // Cambié `username` a `email` para mayor claridad
+      email: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
@@ -35,9 +35,9 @@ export default class LoginComponent implements OnInit {
       return;
     }
 
-    const { username, password } = this.loginForm.value;
+    const { email, password } = this.loginForm.value;
 
-    this.authService.login(username, password).subscribe({
+    this.authService.login(email, password).subscribe({
       next: (response) => {
         this.authService.saveToken(response.access, response.refresh);  // Guarda ambos tokens
         Swal.fire('Éxito', 'Ingreso exitoso.', 'success');
